@@ -4033,7 +4033,7 @@ azure.azcollection.azure_rm_resource_info:
 
 azure.azcollection.azure_rm_resourcegroup:
   query: >-
-    . | select(. != null) | {
+    .state | select(. != null) | {
       name: .id,
       canonical_facts: {
         id: .id
