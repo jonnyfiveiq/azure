@@ -4017,6 +4017,20 @@ azure.azcollection.azure_rm_resource:
       }
     }
 
+azure.azcollection.azure_rm_resourcegroup_info:
+  query: >-
+    .resourcegroups[] | select(. != null) | {
+      name: .id,
+      canonical_facts: {
+        id: .id
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Resource"
+      }
+    }
+
 azure.azcollection.azure_rm_resource_info:
   query: >-
     . | select(. != null) | {
